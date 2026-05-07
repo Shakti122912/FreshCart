@@ -1,0 +1,119 @@
+Action: file_editor create /app/frontend/src/index.css --file-text "@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Work+Sans:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --fc-bg: #FAF9F6;
+    --fc-surface: #F2EFEB;
+    --fc-surface-alt: #E8E4DB;
+    --fc-primary: #1B3B24;
+    --fc-primary-hover: #2C5A37;
+    --fc-terracotta: #B85D43;
+    --fc-moss: #7A8B56;
+    --fc-text: #1A1A1A;
+    --fc-text-2: #4A4A4A;
+    --fc-border: #D1CFC7;
+}
+
+html, body, #root {
+    background-color: var(--fc-bg);
+    color: var(--fc-text);
+}
+
+body {
+    margin: 0;
+    font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.font-serif {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+.font-sans {
+    font-family: 'Work Sans', sans-serif;
+}
+
+::selection {
+    background-color: var(--fc-primary);
+    color: var(--fc-bg);
+}
+
+@layer base {
+    :root {
+        --background: 39 25% 97%;
+        --foreground: 0 0% 10%;
+        --card: 39 25% 97%;
+        --card-foreground: 0 0% 10%;
+        --popover: 39 25% 97%;
+        --popover-foreground: 0 0% 10%;
+        --primary: 137 38% 17%;
+        --primary-foreground: 39 25% 97%;
+        --secondary: 36 19% 93%;
+        --secondary-foreground: 137 38% 17%;
+        --muted: 36 19% 93%;
+        --muted-foreground: 0 0% 29%;
+        --accent: 14 47% 49%;
+        --accent-foreground: 39 25% 97%;
+        --destructive: 0 70% 42%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 39 11% 80%;
+        --input: 39 11% 80%;
+        --ring: 137 38% 17%;
+        --radius: 0;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground;
+    }
+}
+
+/* Subtle paper grain */
+.grain {
+    position: relative;
+}
+.grain::after {
+    content: \"\";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.04;
+    mix-blend-mode: multiply;
+    background-image: url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>\");
+}
+
+/* Marquee */
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+.marquee-track {
+    display: flex;
+    gap: 3rem;
+    width: max-content;
+    animation: marquee 40s linear infinite;
+}
+
+/* Fade up */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.fade-up {
+    animation: fadeUp 0.8s ease-out both;
+}
+
+/* Hide scrollbar in chip rows */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }
+"
+Observation: Overwrite successful: /app/frontend/src/index.css
